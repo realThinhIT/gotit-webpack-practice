@@ -1,0 +1,27 @@
+{
+  "name": "gotit-webpack-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realThinhIT/gotit-webpack-practice.git"
+  },
+  "author": "Thinh Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/realThinhIT/gotit-webpack-practice/issues"
+  },
+  "homepage": "https://github.com/realThinhIT/gotit-webpack-practice#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.5"
+  }
+}

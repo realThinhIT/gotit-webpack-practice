@@ -1,0 +1,45 @@
+{
+  "additionalProperties": true,
+  "properties": {
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    },
+    "outputPath": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    },
+    "publicPath": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    },
+    "context": {
+      "type": "string"
+    }
+  },
+  "errorMessages": {
+    "name": "should be {String} or {Function} (https://github.com/webpack-contrib/file-loader#name)",
+    "outputPath": "should be {String} or {Function} (https://github.com/webpack-contrib/file-loader#outputpath)",
+    "publicPath": "should be {String} or {Function} (https://github.com/webpack-contrib/file-loader#publicpath)",
+    "context": "should be {String} (https://github.com/webpack-contrib/file-loader#context)"
+  },
+  "type": "object"
+}

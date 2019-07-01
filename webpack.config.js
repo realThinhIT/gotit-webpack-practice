@@ -13,12 +13,47 @@ module.exports = {
   },
 
   // Define module rules
-
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'my-loader',
+            options: {
+              name: '[name].[ext]?ver=[hash:8]',
+              outputPath: './assets',
+              publicPath: '/assets'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'my-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+          }
+        ]
+      }
+    ]
+  },
 
   // Define resolveLoader to resolve paths to custom loaders
   resolveLoader: {
     modules: [
-      
+      'node_modules',
+      path.resolve(__dirname, 'loaders')
     ]
   }
 };

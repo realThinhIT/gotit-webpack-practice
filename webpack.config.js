@@ -1,4 +1,5 @@
-var path = require('path');
+const path = require('path');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   // Define entrypoints
@@ -16,22 +17,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'my-loader',
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'hash-content-loader',
             options: {
-              name: '[name].[ext]?ver=[hash:8]',
-              outputPath: './assets',
-              publicPath: '/assets'
+              hashLength: 8 // default is 8 already
             }
-          }
+          },
         ]
       },
       {
@@ -55,5 +52,12 @@ module.exports = {
       'node_modules',
       path.resolve(__dirname, 'loaders')
     ]
-  }
+  },
+
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'public', to: '.' },
+      { from: 'src/index.html', to: '.' }
+    ])
+  ]
 };

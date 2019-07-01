@@ -53,7 +53,7 @@ const hashPath = function (match, options) {
 
     // Replace src with a new hash
     const hashedSrcContent = `${srcContent}?v=${hash}`;
-    const hashedSrcAttribute = srcAttribute.split(srcContent).join(hashedSrcContent);
+    const hashedSrcAttribute = srcAttribute.replace(srcContent, hashedSrcContent);
 
     return hashedSrcAttribute;
   } else {
